@@ -14,6 +14,7 @@ import {
   ListItemText,
   Button,
   Stack,
+  Avatar,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import MuiAppBar from "@mui/material/AppBar";
@@ -25,6 +26,7 @@ import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import PeopleIcon from "@mui/icons-material/People";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import WolfsteinLogo from "../assets/images/wolfstein.png";
+import Logo from "../assets/images/Logo.svg";
 import '../assets/nav.css';
 
 const drawerWidth = 240;
@@ -100,7 +102,8 @@ function NavbarContent({ children }) {
         open={openDrawer}
       >
         <DrawerHeader sx={{ display: 'flex', justifyContent: 'space-between'}}>
-          <img src={WolfsteinLogo} alt="Wolfstein Logo"/>
+          {/* <img src={WolfsteinLogo} alt="Wolfstein Logo"/> */}
+          <img src={Logo} alt="Wolfstein Logo"/>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
