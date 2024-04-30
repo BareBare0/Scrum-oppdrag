@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Typography,
   Box,
@@ -14,7 +14,6 @@ import {
   ListItemText,
   Button,
   Stack,
-  Avatar,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import MuiAppBar from "@mui/material/AppBar";
@@ -26,7 +25,6 @@ import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import PeopleIcon from "@mui/icons-material/People";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import WolfsteinLogo from "../assets/images/wolfstein.png";
-import Logo from "../assets/images/Logo.svg";
 import '../assets/nav.css';
 
 const drawerWidth = 240;
@@ -56,6 +54,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
+// eslint-disable-next-line react/prop-types
 function NavbarContent({ children }) {
   const [openDrawer, setOpenDrawer] = useState(false);
   const theme = useTheme();
@@ -102,8 +101,7 @@ function NavbarContent({ children }) {
         open={openDrawer}
       >
         <DrawerHeader sx={{ display: 'flex', justifyContent: 'space-between'}}>
-          {/* <img src={WolfsteinLogo} alt="Wolfstein Logo"/> */}
-          <img src={Logo} alt="Wolfstein Logo"/>
+          <img src={WolfsteinLogo} alt="Wolfstein Logo"/>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
