@@ -13,7 +13,11 @@ function Participants() {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-      setUsers(data);
+      const formattedUsers = data.map((user) => ({
+        ...user,
+        dateCreated: new Date(user.dateCreated).toLocaleString(),
+      }));
+      setUsers(formattedUsers);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -24,10 +28,12 @@ function Participants() {
   }, []);
 
   const columns = [
-    { field: "name", headerName: "Name", width: 150 },
-    { field: "email", headerName: "Email", width: 200 },
-    // { field: "dateCreated", headerName: "Date Created", width: 100 },
+    { field: "name", headerName: "Navn", width: 150 },
+    { field: "email", headerName: "Email", width: 250 },
+    { field: "dateCreated", headerName: "Dato Registrert", width: 150 },
   ];
+
+  const getRowId = (row) => row.userID;
 
   return (
     <div>
@@ -41,6 +47,7 @@ function Participants() {
             columns={columns}
             pageSize={5}
             disableSelectionOnClick
+            getRowId={getRowId}
           />
         </div>
       </NavbarContent>
